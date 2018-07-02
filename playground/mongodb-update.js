@@ -29,11 +29,11 @@ MongoClient.connect( 'mongodb://localhost:27017/TodoApp', (err, db)=>{
 
 	db.collection('Users').findOneAndUpdate(
 		{
-			name: 'Erin'
+			_id: new ObjectID('5b39970a3e1e78e36eff5346')
 		},
 		{
 			$set: {
-				name: 'Erin Duvall'
+				name: 'Erin'
 			},
 			$inc: {
 				age: 1

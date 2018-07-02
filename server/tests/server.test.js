@@ -24,6 +24,7 @@ describe('POST /todos', () => {
 					return done(err);
 				}
 
+				//Check database for test value
 				Todo.find().then((todos)=>{
 					expect(todos.length).toBe(1);
 					expect(todos[0].text).toBe(text);

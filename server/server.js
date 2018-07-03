@@ -46,7 +46,7 @@ app.get('/todos/:id', (req, res)=>{
 
 		if( todo ){
 			//If exists return todo
-			res.send( todo ); 
+			res.send( {todo} ); 
 		} else {
 			//Todo not found return 404
 			res.status(404).send();

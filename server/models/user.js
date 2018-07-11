@@ -45,6 +45,24 @@ UserSchema.methods.generateAuthToken = function(){
 	});
 };
 
+//Model method
+UserSchema.statics.findByToken = function( token ){
+	var User = this;
+	var decoded;
+
+	try{
+		decoded = jwt.verify( token, 'asdf1234' );
+	} catch(e){
+		return Promise.reject(); //return rejected promise
+	}
+	
+	return User.findOne( { 
+		'_id': decoded._id,
+		'tokens.token':token,
+		'tokens.access': 'auth'
+	} );
+};
+
 //Override toJSON function to limit data returned to user
 UserSchema.methods.toJSON = function(){
 	var user = this;

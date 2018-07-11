@@ -136,6 +136,7 @@ app.post('/users', (req, res) => {
 
 });
 
+//Authenticated route, using authenticate middleware
 app.get('/users/me', authenticate, (req, res)=>{
 	res.send( req.user );
 });

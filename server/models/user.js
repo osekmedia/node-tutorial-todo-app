@@ -64,6 +64,29 @@ UserSchema.statics.findByToken = function( token ){
 	} );
 };
 
+UserSchema.statics.findByCridentials = function( email, password ){
+	var User = this;
+	//var hash;
+	
+	return User.findOne( {email} ).then( (user)=>{
+		if(!user){
+			return Promise.reject();
+		}
+
+		return new Promise( (resolve, reject )=>{
+			//Compare encrypted passwords and resolve promise if success otherwise reject
+			//bcrypt uses callback so muct wrap inside promise
+			bcrypt.compare(password, user.password, (err, res)=>{
+				if(res){
+					resolve( user );
+				} else {
+					reject();
+				}
+			});
+		});
+	});
+};
+
 //Hash password before save
 // https://www.npmjs.com/package/bcryptjs
 // http://mongoosejs.com/docs/middleware.html

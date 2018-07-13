@@ -12,7 +12,7 @@ bcrypt.genSalt(10, (err, salt)=>{
 });
 
 var hashedPassword = "$2a$10$pn0pOcKOuZE0/3WKf7XuU.UUcYSXCN1tDN2/itWXFDqhyzl1kEv2O";
-bcrypt.compare('password', hashedPassword, (err, res)=>{
+bcrypt.compare('123abc!', hashedPassword, (err, res)=>{
 console.log(res);
 });
 // var data = {

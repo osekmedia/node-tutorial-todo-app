@@ -65,6 +65,7 @@ UserSchema.statics.findByToken = function( token ){
 };
 
 //Hash password before save
+// https://www.npmjs.com/package/bcryptjs
 // http://mongoosejs.com/docs/middleware.html
 UserSchema.pre('save', function(next) {
   var user = this;

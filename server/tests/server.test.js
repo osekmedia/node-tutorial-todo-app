@@ -241,7 +241,9 @@ describe('POST /users', () => {
 
 		request(app)
 			.post('/users')
-			.send({email: users[0].email, password: users[0].password})
+			.send({
+				email: users[0].email, 
+				password: users[0].password})
 			.expect(400)
 			.expect( (res) =>{
 				expect(res.headers['x-auth']).toNotExist();

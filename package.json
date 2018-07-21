@@ -28,6 +28,6 @@
     "expect": "^21.1.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.1",
-    "supertest": "^2.0.0"
+    "supertest": "^3.1.0"
   }
 }
